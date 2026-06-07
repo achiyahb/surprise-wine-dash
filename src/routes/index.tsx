@@ -16,7 +16,7 @@ const CONFIG = {
   name: "רייצ'ל",
   dateDisplay: "10/06",
   dateISO: "2026-06-10",
-  timeStart: "20:00",
+  timeStart: "19:00",
   timeEnd: "23:30",
   dayOfWeek: "יום רביעי · כ״ה בסיוון",
   place: "מקום סודי 🤫",
