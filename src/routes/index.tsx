@@ -529,9 +529,8 @@ const CSS = `
   padding: 12px 24px;
   border: 1px solid rgba(232,193,112,0.4);
   border-radius: 999px;
-  display: inline-block;
+  display: block;
   margin: 8px auto 28px;
-  align-self: center;
 }
 .stp-details {
   background: rgba(247,239,230,0.04);
