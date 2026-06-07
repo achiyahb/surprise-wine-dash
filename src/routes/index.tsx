@@ -35,9 +35,9 @@ const TEASES = [
 ];
 
 const FAKE_OPTIONS = [
-  "להישאר בבית ולעשות כלום 🛋️",
-  "פיצה וסדרה 🍕",
-  "פיקניק על חוף הים 🏖️",
+   "פיקניק על חוף הים 🏖️",
+    " הרצאה על מקראמה בחינוך ילדים 🍳",
+  "פיצה וסדרה חדשה!!! 🍕",
 ];
 
 function daysUntil(iso: string) {
@@ -146,9 +146,9 @@ function Screen1({ onNext }: { onNext: () => void }) {
       <h1 className="stp-h1">
         {CONFIG.name},
         <br />
-        <span className="gold">זה הרגע שלך</span>
+        <span className="gold">חיים שלי</span>
       </h1>
-      <p className="stp-sub">יש לי משהו קטן בשבילך.<br />מבטיח שזה שווה את הלחיצה.</p>
+      <p className="stp-sub">משהו קטן בשבילך<br />מבטיח שזה שווה את הלחיצה.</p>
       <button className="stp-btn-primary glow" onClick={onNext}>
         פתחי את ההזמנה ✨
       </button>
