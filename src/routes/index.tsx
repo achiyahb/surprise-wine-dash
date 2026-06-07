@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,6 +23,15 @@ const CONFIG = {
   calendarTitle: "ערב הפתעה 🎁 — אל תשאלי",
 };
 
+const WHATSAPP_NUMBER = "972546743200";
+const WHATSAPP_MESSAGE =
+  "חיים שלי אני שרופה עליך, אבוא איתך לאן שרק תבחר";
+
+function openWhatsAppApproval() {
+  const text = encodeURIComponent(WHATSAPP_MESSAGE);
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
+}
+
 const TEASES = [
   "נו באמת 🙄",
   "לא היום!",
@@ -35,8 +44,8 @@ const TEASES = [
 ];
 
 const FAKE_OPTIONS = [
-   "פיקניק על חוף הים 🏖️",
-    " הרצאה על מקראמה בחינוך ילדים 🍳",
+  "פיקניק על חוף הים 🏖️",
+  "הרצאה על מקראמה בחינוך ילדים 🍳",
   "פיצה וסדרה חדשה!!! 🍕",
 ];
 
@@ -286,12 +295,18 @@ function Screen3() {
       </div>
 
       {!rsvp ? (
-        <button className="stp-btn-primary glow" onClick={() => setRsvp(true)}>
-          אני באה! 🥂
+        <button
+          className="stp-btn-primary glow"
+          onClick={() => {
+            setRsvp(true);
+            openWhatsAppApproval();
+          }}
+        >
+          שלחי לי אישור בווצאפ 💌
         </button>
       ) : (
         <div className="stp-rsvp-ok">
-          נתראה שם!<br />סימנתי אותך. אל תאחרי 😉
+          נתראה שם!<br />מחכה להודעה שלך בווצאפ 😉
         </div>
       )}
       <button className="stp-btn-secondary" onClick={buildICS}>
