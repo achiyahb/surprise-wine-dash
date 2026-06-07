@@ -274,7 +274,7 @@ function Screen3() {
           <div className="stp-label">מתי</div>
           <div className="stp-value-big">{CONFIG.dateDisplay}</div>
           <div className="stp-value-small">
-            {CONFIG.dayOfWeek} · {CONFIG.timeStart}
+            {CONFIG.dayOfWeek}
           </div>
         </div>
         <div className="stp-divider" />
