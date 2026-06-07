@@ -46,7 +46,7 @@ const TEASES = [
 const FAKE_OPTIONS = [
   "פיקניק על חוף הים 🏖️",
   "הרצאה על מקראמה בחינוך ילדים 🍳",
-  "פיצה וסדרה מומלצת בRotten!!! 🍕",
+  "פיצה וסדרה חדשה!!! 🍕",
 ];
 
 function daysUntil(iso: string) {
@@ -103,7 +103,7 @@ function Index() {
         href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap"
       />
       <Bubbles />
-      <div className={`stp-screen ${fading ? "fading" : "shown"}`}>
+      <div className={`stp-screen stp-screen-${screen} ${fading ? "fading" : "shown"}`}>
         {screen === 1 && <Screen1 onNext={() => goto(2)} />}
         {screen === 2 && <Screen2 onPick={() => goto(3)} />}
         {screen === 3 && <Screen3 />}
@@ -294,6 +294,7 @@ function Screen3() {
         </div>
       </div>
 
+      {!rsvp ? (
         <button
           className="stp-btn-primary glow"
           onClick={() => {
@@ -303,7 +304,11 @@ function Screen3() {
         >
           שלחי לי אישור בווצאפ 💌
         </button>
-  
+      ) : (
+        <div className="stp-rsvp-ok">
+          נתראה שם!<br />מחכה להודעה שלך בווצאפ 😉
+        </div>
+      )}
       <button className="stp-btn-secondary" onClick={buildICS}>
         📅 הוסיפי ליומן
       </button>
@@ -315,14 +320,15 @@ const CSS = `
 .stp-root {
   font-family: "Heebo", system-ui, sans-serif;
   min-height: 100vh;
+  min-height: 100dvh;
   background: radial-gradient(ellipse at top, #241820 0%, #1a1116 70%, #110a0e 100%);
   color: #f7efe6;
   overflow: hidden;
   position: relative;
-  padding: 24px 20px;
+  padding: 12px 16px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 .stp-screen {
   width: 100%;
@@ -331,11 +337,12 @@ const CSS = `
   z-index: 2;
   transition: opacity 0.4s ease;
   opacity: 1;
-  min-height: 90vh;
+  min-height: calc(100vh - 24px);
+  min-height: calc(100dvh - 24px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 0;
+  padding: 18px 0;
 }
 .stp-screen.fading { opacity: 0; }
 
@@ -368,7 +375,7 @@ const CSS = `
   font-size: 11px;
   color: #e8c170;
   font-weight: 600;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 .stp-h1 {
   text-align: center;
@@ -379,10 +386,10 @@ const CSS = `
 }
 .stp-h2 {
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 800;
-  line-height: 1.2;
-  margin: 0 0 16px;
+  line-height: 1.15;
+  margin: 0 0 12px;
 }
 .gold {
   color: #e8c170;
@@ -393,10 +400,10 @@ const CSS = `
 }
 .stp-sub {
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   opacity: 0.8;
-  margin: 0 0 32px;
-  line-height: 1.6;
+  margin: 0 0 22px;
+  line-height: 1.45;
   font-weight: 300;
 }
 
@@ -448,8 +455,8 @@ const CSS = `
   border: none;
   font-family: inherit;
   font-weight: 800;
-  font-size: 18px;
-  padding: 18px 36px;
+  font-size: 17px;
+  padding: 15px 28px;
   border-radius: 999px;
   cursor: pointer;
   letter-spacing: 0.02em;
@@ -463,14 +470,14 @@ const CSS = `
 }
 .stp-btn-secondary {
   display: block;
-  margin: 14px auto 0;
+  margin: 10px auto 0;
   background: transparent;
   color: #f7efe6;
   border: 1px solid rgba(247,239,230,0.3);
   font-family: inherit;
   font-weight: 400;
-  font-size: 15px;
-  padding: 14px 28px;
+  font-size: 14px;
+  padding: 11px 22px;
   border-radius: 999px;
   cursor: pointer;
 }
@@ -523,8 +530,8 @@ const CSS = `
 /* Screen 3 */
 .stp-gift {
   text-align: center;
-  font-size: 56px;
-  margin: 12px 0 18px;
+  font-size: 42px;
+  margin: 4px 0 10px;
   animation: stp-bounce 2s ease-in-out infinite;
 }
 @keyframes stp-bounce {
@@ -535,34 +542,34 @@ const CSS = `
   text-align: center;
   color: #e8c170;
   font-weight: 800;
-  font-size: 18px;
-  padding: 12px 24px;
+  font-size: 16px;
+  padding: 9px 20px;
   border: 1px solid rgba(232,193,112,0.4);
   border-radius: 999px;
   display: block;
-  margin: 8px auto 28px;
+  margin: 4px auto 14px;
 }
 .stp-details {
   background: rgba(247,239,230,0.04);
   border: 1px solid rgba(247,239,230,0.1);
-  border-radius: 20px;
-  padding: 24px 20px;
-  margin-bottom: 24px;
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
 }
-.stp-detail { text-align: center; padding: 8px 0; }
+.stp-detail { text-align: center; padding: 4px 0; }
 .stp-label {
   letter-spacing: 0.25em;
   font-size: 11px;
   color: #e8c170;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
-.stp-value-big { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-.stp-value-small { font-size: 14px; opacity: 0.7; font-weight: 300; }
+.stp-value-big { font-size: 20px; font-weight: 800; margin-bottom: 2px; }
+.stp-value-small { font-size: 13px; opacity: 0.7; font-weight: 300; }
 .stp-divider {
   height: 1px;
   background: rgba(247,239,230,0.12);
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 .stp-rsvp-ok {
@@ -570,7 +577,7 @@ const CSS = `
   background: linear-gradient(135deg, rgba(232,193,112,0.15), rgba(232,193,112,0.05));
   border: 1px solid rgba(232,193,112,0.4);
   color: #f7efe6;
-  padding: 18px;
+  padding: 13px;
   border-radius: 16px;
   font-weight: 600;
   line-height: 1.5;
@@ -594,4 +601,57 @@ const CSS = `
   0% { transform: translateY(-20px) rotate(0); opacity: 1; }
   100% { transform: translateY(110vh) rotate(720deg); opacity: 0.7; }
 }
+
+/* Compact final screen: keeps the WhatsApp button visible on mobile without scrolling */
+.stp-screen-3 {
+  justify-content: flex-start;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.stp-s3 {
+  width: 100%;
+}
+.stp-s3 .stp-tag {
+  margin-bottom: 8px;
+}
+.stp-s3 .stp-sub {
+  margin-bottom: 10px;
+}
+.stp-s3 .stp-btn-primary,
+.stp-s3 .stp-btn-secondary {
+  width: min(100%, 320px);
+}
+
+@media (max-height: 760px) {
+  .stp-root { padding: 8px 14px; }
+  .stp-screen {
+    min-height: calc(100vh - 16px);
+    min-height: calc(100dvh - 16px);
+    padding: 10px 0;
+  }
+  .stp-s3 .stp-tag { font-size: 10px; margin-bottom: 6px; }
+  .stp-gift { font-size: 34px; margin: 0 0 6px; }
+  .stp-h2 { font-size: 24px; margin-bottom: 8px; }
+  .stp-sub { font-size: 14px; line-height: 1.35; }
+  .stp-s3 .stp-sub { margin-bottom: 8px; }
+  .stp-countdown {
+    font-size: 15px;
+    padding: 7px 18px;
+    margin: 2px auto 10px;
+  }
+  .stp-details {
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+  }
+  .stp-detail { padding: 3px 0; }
+  .stp-label { font-size: 10px; margin-bottom: 3px; }
+  .stp-value-big { font-size: 18px; }
+  .stp-value-small { font-size: 12px; }
+  .stp-divider { margin: 5px 0; }
+  .stp-btn-primary { font-size: 15px; padding: 12px 22px; }
+  .stp-btn-secondary { font-size: 13px; padding: 9px 18px; margin-top: 8px; }
+  .stp-rsvp-ok { padding: 11px; font-size: 14px; }
+}
+
 `;
