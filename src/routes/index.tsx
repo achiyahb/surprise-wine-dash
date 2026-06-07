@@ -294,7 +294,6 @@ function Screen3() {
         </div>
       </div>
 
-      {!rsvp ? (
         <button
           className="stp-btn-primary glow"
           onClick={() => {
@@ -304,11 +303,7 @@ function Screen3() {
         >
           שלחי לי אישור בווצאפ 💌
         </button>
-      ) : (
-        <div className="stp-rsvp-ok">
-          נתראה שם!<br />מחכה להודעה שלך בווצאפ 😉
-        </div>
-      )}
+  
       <button className="stp-btn-secondary" onClick={buildICS}>
         📅 הוסיפי ליומן
       </button>
