@@ -46,7 +46,7 @@ const TEASES = [
 const FAKE_OPTIONS = [
   "פיקניק על חוף הים 🏖️",
   "הרצאה על מקראמה בחינוך ילדים 🍳",
-  "פיצה וסדרה חדשה!!! 🍕",
+  "פיצה וסדרה מומלצת במRotten!!! 🍕",
 ];
 
 function daysUntil(iso: string) {
