@@ -14,11 +14,11 @@ export const Route = createFileRoute("/")({
 // === CONFIG ===
 const CONFIG = {
   name: "רייצ'ל",
-  dateDisplay: "12 ביולי 2026",
-  dateISO: "2026-07-12",
+  dateDisplay: "10/06",
+  dateISO: "2026-06-10",
   timeStart: "20:00",
   timeEnd: "23:30",
-  dayOfWeek: "יום ראשון",
+  dayOfWeek: "יום רביעי · כ״ה בסיוון",
   place: "מקום סודי 🤫",
   calendarTitle: "ערב הפתעה 🎁 — אל תשאלי",
 };
@@ -274,7 +274,7 @@ function Screen3() {
           <div className="stp-label">מתי</div>
           <div className="stp-value-big">{CONFIG.dateDisplay}</div>
           <div className="stp-value-small">
-            {CONFIG.dayOfWeek} · {CONFIG.timeStart}
+            {CONFIG.dayOfWeek}
           </div>
         </div>
         <div className="stp-divider" />
